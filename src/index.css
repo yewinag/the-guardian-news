@@ -1,13 +1,28 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'GeorgiaSemibold';
+  src: url('./assets/fonts/GeorgiaPro-Semibold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'GeorgiaRegular';
+  src: url('./assets/fonts/GeorgiaPro-CondRegular.ttf');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'GeorgiaBold';
+  src: url('./assets/fonts/GeorgiaPro-Bold.ttf');
+  font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  color: #212121;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #fff;
+  min-height: 800px;
+  font-family: GeorgiaRegular, Arial, Helvetica, sans-serif;  
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }

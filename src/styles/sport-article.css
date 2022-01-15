@@ -1,0 +1,16 @@
+.article-sport {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 28px;
+    margin-bottom: 26px;
+  }
+  
+  .article-sport .item-card {
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+    flex: 2;
+  }
+  .article-sport .desc h4 {
+    font-size: 20px;
+  }

@@ -1,0 +1,26 @@
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  padding-top: 26px;
+}
+.article-header h2 {
+  font-size: 44px;
+}
+.article-header-action {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  background: #09357a;
+  padding: 6px 24px;
+  border-radius: 6px;
+  color: #fff;
+  border: 0;
+  margin-right: 20px;
+}
+.article-header-action select {
+  min-width: 264px;
+  height: 40px;
+}
