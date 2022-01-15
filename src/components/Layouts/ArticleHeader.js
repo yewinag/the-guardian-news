@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/common.css';
 import '../../styles/article-header.css';
+import { Dropdown } from '../Common';
 
 function ArticleHeader() {
   return (
@@ -12,11 +13,7 @@ function ArticleHeader() {
             View Bookmark
           </button>
         </a>
-        <select>
-          <option value="newest">Newest First</option>
-          <option value="oldest">Oldest First</option>
-          <option value="popular">Most Popular</option>
-        </select>
+        <Dropdown />
       </div>
     </header>
   );

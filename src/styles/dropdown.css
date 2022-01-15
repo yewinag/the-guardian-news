@@ -1,0 +1,36 @@
+.dropdown {
+  border: 1px solid #ddd;
+  position: relative;
+  font: inherit;
+}
+.dropdown button {
+  padding: 6px 24px;
+  border-radius: 6px;
+  min-width: 264px;
+  border: 0;
+  padding: 6px 24px;
+  text-align: left;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  padding: 6px 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  transition: 1;
+  transition: 0.6;
+}
+ul li {
+  padding: 6px 0;
+  cursor: pointer;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
