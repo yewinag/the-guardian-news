@@ -1,0 +1,48 @@
+.detail{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 28px;
+}
+.detail .date{
+    font-size: 12px;
+    margin: 10px 0;
+}
+.detail h2{
+    font-size: 32px;
+    line-height: 1;
+    margin: 14px 0;
+}
+.detail h4{
+    font-size: 22px;
+    font-weight: bold;
+    margin: 14px 0;
+}
+.detail p{
+    margin: 12px 0;
+}
+.detail .detail-col-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.detail .detail-col-2 p{
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+@media only screen and (max-width: 768px) {
+    .detail{
+        display: block;
+        /* grid-template-columns: auto auto; */
+        /* grid-gap: 28px; */
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .detail{
+        display: block;
+        /* grid-template-columns: auto auto; */
+        /* grid-gap: 28px; */
+    }
+  }
+  
