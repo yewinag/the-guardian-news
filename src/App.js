@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './containers/Home';
 import Search from './containers/Search';
 import Detail from './containers/Detail';
@@ -9,7 +9,7 @@ import Footer from './components/Layouts/Footer';
 function App() {
   return (
     <Router>
-      <Header />      
+      <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />

@@ -1,0 +1,16 @@
+.search-article {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 28px;
+    margin-bottom: 28px;
+  }
+  .search-article h4 {
+    font-size: 20px;
+  }
+  .search-article .item-card {
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+    flex: 2;
+  }
+  
