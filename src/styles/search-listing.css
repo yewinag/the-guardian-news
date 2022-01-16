@@ -4,6 +4,9 @@
     grid-gap: 28px;
     margin-bottom: 28px;
   }
+  .search-article a:first-child{
+
+  }
   .search-article h4 {
     font-size: 20px;
   }
