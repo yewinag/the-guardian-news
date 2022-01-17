@@ -17,7 +17,11 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    fetchData(`/search?section=sport`).then((res) => setSports(res));
+    setloading(true);
+    fetchData(`/search?section=sport&`).then((res) => {
+      setSports(res);
+      setloading(false);
+    });
   }, []);
 
   const handleFetchNews = (params = '') => {
@@ -46,7 +50,7 @@ function Home() {
       <NewsContext.Provider value={value}>
         <ArticleHeader />
       </NewsContext.Provider>
-      <div>
+      <div className="app-container">
         {loading ? (
           <Spinner />
         ) : (
@@ -80,11 +84,21 @@ function Home() {
         <header className="sport-article-header">
           <h2>Sports</h2>
         </header>
-        <article className="article-sport">
-          {sportNews.map((item) => (
-            <Card name="item-1" item={item} key={item.id} imageClass="thumb" />
-          ))}
-        </article>
+
+        {loading ? (
+          <Spinner />
+        ) : (
+          <article className="article-sport">
+            {sportNews.map((item) => (
+              <Card
+                name="item-1"
+                item={item}
+                key={item.id}
+                imageClass="thumb"
+              />
+            ))}
+          </article>
+        )}
       </article>
     </article>
   );

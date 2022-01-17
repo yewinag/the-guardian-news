@@ -26,3 +26,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.article{
+  min-height: 700px;
+}

@@ -12,8 +12,17 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route
+          exact
+          path="/detail/:section/:year/:month/:day/:title"
+          element={<Detail />}
+        />
+        <Route exact path="/search/:query" element={<Search />} />
+        <Route
+          exact
+          path="/search/:tags/detail/:section/:year/:month/:day/:title"
+          element={<Detail />}
+        />
       </Routes>
       <Footer />
     </Router>

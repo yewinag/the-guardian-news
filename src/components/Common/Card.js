@@ -6,7 +6,7 @@ const img = require('../../assets/peak-default.png');
 
 function Card({ item, imageClass }) {
   return (
-    <Link to="detail">
+    <Link to={`detail/${item.id}`}>
       <section className="item-1">
         <div
           className={imageClass}

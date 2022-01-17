@@ -1,19 +1,24 @@
 .search-article {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 28px;
-    margin-bottom: 28px;
-  }
-  .search-article a:first-child{
-
-  }
-  .search-article h4 {
-    font-size: 20px;
-  }
-  .search-article .item-card {
-    padding-bottom: 60%;
-    background-size: cover;
-    background-position: center center;
-    flex: 2;
-  }
-  
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 28px;
+  margin-bottom: 28px;
+}
+.search-article h4 {
+  font-size: 20px;
+}
+.search-article .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  flex: 2;
+}
+.search-article .desc {
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #09357a;
+  color: #fff;
+}

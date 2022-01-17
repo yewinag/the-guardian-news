@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/header.css';
+import SearchInput from '../Common/SearchInput';
 
 function Header() {
   return (
@@ -12,8 +13,7 @@ function Header() {
           </h2>
         </a>
         <div className="search">
-          <input className="search-input" type="text" />
-          {/* <img src="" alt="" /> */}
+          <SearchInput />
         </div>
       </nav>
     </header>
