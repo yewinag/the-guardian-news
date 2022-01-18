@@ -25,6 +25,11 @@ function App() {
           element={<Detail />}
         />
         <Route exact path="/bookmarks" element={<BookMark />} />
+        <Route
+          exact
+          path="/bookmarks/detail/:section/:year/:month/:day/:title"
+          element={<Detail />}
+        />
       </Routes>
       <Footer />
     </Router>
