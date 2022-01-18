@@ -15,7 +15,7 @@ function BookMark() {
   }, []);
   return (
     <article className="article">
-      <ArticleHeader />
+      <ArticleHeader title="All Bookmarks" />
       <div className="bookmark-articles app-container">
         {loading ? (
           <Spinner />

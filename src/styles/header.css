@@ -27,14 +27,23 @@
   display: flex;
 }
 .header-nav .search .search-input {
-  /* float: right; */
   background: transparent;
   border: 0;
   border-bottom: 2px solid #fff;
-  width: 60px;
+  width: 100px;
   color: #fff;
   height: 40px;
 }
+.search-input-layout{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.search-input-layout .search-icon{
+  position: absolute;
+  right: 28px;
+}
+
 .header-nav .search img {
   width: 30px;
   margin-left: -30px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ReactComponent as Search } from '../../assets/search.svg';
 
 function SearchInput() {
   const [query, searchOnchange] = useState('');
@@ -12,13 +13,16 @@ function SearchInput() {
     }
   };
   return (
-    <input
-      className="search-input"
-      type="text"
-      value={query}
-      onChange={handleInputChange}
-      onKeyDown={handleInputChange}
-    />
+    <div className="search-input-layout">
+      <input
+        className="search-input"
+        type="text"
+        value={query}
+        onChange={handleInputChange}
+        onKeyDown={handleInputChange}
+      />
+      <Search className="search-icon" />
+    </div>
   );
 }
 

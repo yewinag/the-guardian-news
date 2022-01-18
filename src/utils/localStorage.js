@@ -4,7 +4,6 @@ export function getAllItems() {
   }
   return JSON.parse(window.localStorage.getItem('bookmark'));
 }
-export function clearAllItems() {}
 export function saveItem(item) {
   if (window.localStorage.getItem('bookmark') === null) {
     window.localStorage.setItem('bookmark', '[]');

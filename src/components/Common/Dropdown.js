@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react';
 import '../../styles/dropdown.css';
-import { fetchData } from '../../utils';
+import { fetchData, sortMenu } from '../../utils';
 import NewsContext from '../../hooks/NewsContext';
+import { ReactComponent as DropdownIcon } from '../../assets/dropdown.svg';
+
+const InitialValue = { name: 'Newest First' };
 
 function Dropdown() {
-  const [value, setValue] = useState('Newest First');
+  const [value, setValue] = useState(InitialValue);
   const [isActive, setIsActive] = useState(false);
   const news = useContext(NewsContext);
 
@@ -23,27 +26,28 @@ function Dropdown() {
   const handleSort = (params) => {
     news.setloading(true);
     setValue(params);
-    fetchData(`/search?section=news&order-by=${params}`).then((json) => {
+    fetchData(`${news.url}${params.keyword}`).then((json) => {
       news.setloading(false);
-      news.setNews(json);
+      news.setNews(json.results);
     });
   };
 
   return (
     <div className="dropdown">
       <button type="button" onClick={() => setIsActive(!isActive)}>
-        {value}
+        <span>{value.name}</span>
+        <DropdownIcon className="dropdown-icon" />
       </button>
       <ul className={`menu ${isActive ? 'active' : 'inactive'}`}>
-        <li onClick={() => handleSort('newest')} role="presentation">
-          Newest First
-        </li>
-        <li onClick={() => handleSort('oldest')} role="presentation">
-          Oldest First
-        </li>
-        <li onClick={() => handleSort('relevance')} role="presentation">
-          Most Popular
-        </li>
+        {sortMenu.map((item) => (
+          <li
+            onClick={() => handleSort(item)}
+            role="presentation"
+            key={item.id}
+          >
+            {item.name}
+          </li>
+        ))}
       </ul>
     </div>
   );

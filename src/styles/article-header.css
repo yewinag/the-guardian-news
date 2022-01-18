@@ -15,10 +15,12 @@
 .btn {
   background: #09357a;
   padding: 6px 24px;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #fff;
   border: 0;
   margin-right: 20px;
+  display: flex;
+  align-items: center;
 }
 .article-header-action select {
   min-width: 264px;

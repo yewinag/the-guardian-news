@@ -10,45 +10,47 @@ import { Spinner } from '../../components/Common';
 
 function Home() {
   const [news, setNews] = useState({});
-  const [sports, setSports] = useState({});
   const [loading, setloading] = useState(false);
+  const [sports, setSports] = useState({});
+  const [loadingSport, setloadingSport] = useState(false);
   useEffect(() => {
     handleFetchNews();
+    handleSportNews();
   }, []);
 
-  useEffect(() => {
-    setloading(true);
+  const handleSportNews = () => {
+    setloadingSport(true);
     fetchData(`/search?section=sport&`).then((res) => {
       setSports(res);
-      setloading(false);
+      setloadingSport(false);
     });
-  }, []);
-
+  };
   const handleFetchNews = (params = '') => {
     setloading(true);
     fetchData(`/search?section=news${params}`).then((res) => {
-      setNews(res);
+      setNews(res.results);
       setloading(false);
     });
   };
+  const url = `/search?section=news&order-by=`;
   const value = React.useMemo(
     () => ({
       loading,
       setloading,
       setNews,
+      url,
     }),
-    [loading]
+    [loading, url]
   );
-  const firstSectionNews =
-    news.results !== undefined ? news.results.slice(0, 5) : [];
-  const secondSectionNews =
-    news.results !== undefined ? news.results.slice(5, 8) : [];
+  const firstSectionNews = news.length > 0 ? news.slice(0, 5) : [];
+  const secondSectionNews = news.length > 0 ? news.slice(5, 8) : [];
   const sportNews =
     sports.results !== undefined ? sports.results.slice(0, 3) : [];
+
   return (
     <article className="article">
       <NewsContext.Provider value={value}>
-        <ArticleHeader />
+        <ArticleHeader title="Top Stories" />
       </NewsContext.Provider>
       <div className="app-container">
         {loading ? (
@@ -85,7 +87,7 @@ function Home() {
           <h2>Sports</h2>
         </header>
 
-        {loading ? (
+        {loadingSport ? (
           <Spinner />
         ) : (
           <article className="article-sport">
