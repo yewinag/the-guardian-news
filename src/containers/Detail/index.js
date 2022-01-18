@@ -40,7 +40,11 @@ function Detail() {
             <p />
           </section>
           <section className="detail-col-2">
-            <img src={img} alt="news detail images" />
+            {loading && info.content !== undefined ? (
+              <Spinner />
+            ) : (
+              <img src={img} alt="news detail images" />
+            )}
             <p />
           </section>
         </article>

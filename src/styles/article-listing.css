@@ -10,18 +10,30 @@
 .news-article a:first-child {
   grid-column: 1 / span 2;
   grid-row: 1 / span 2;
+  border-bottom: 4px solid #388e3c;
+}
+.news-article a:nth-child(2) {
+  border-bottom: 4px solid #d32f30;
+}
+.news-article a:nth-child(3) {
+  border-bottom: 4px solid #ffc107;
+}
+.news-article a:nth-child(4) {
+  border-bottom: 4px solid #1464b5;
+}
+.news-article a:nth-child(5) {
+  border-bottom: 4px solid #388e3c;
 }
 .news-article a:first-child .thumb {
   padding-bottom: 30%;
   background-size: cover;
   background-position: center center;
-  flex: 2;
+  flex: 1;
 }
 .news-article .thumb {
   padding-bottom: 30%;
   background-size: cover;
-  background-position: center center;
-  flex: 2;
+  background-position: center center;  
 }
 .news-article a:nth-child(4) .thumb {
   padding-bottom: 0;
@@ -51,14 +63,18 @@
   grid-gap: 28px;
   margin-bottom: 26px;
 }
+.article-row-items a{
+  border-bottom: 4px solid #d32f30;
+}
 .article-row-items .second-row-card {
   padding-bottom: 60%;
   background-size: cover;
-  background-position: center center;
-  flex: 2;
+  background-position: center center;  
 }
-.article-row-items .item-2 h4 {
+.article-row-items h4 {
   font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
 }
 .article-row-items .desc {
   padding: 20px;
@@ -72,8 +88,7 @@
 .article-sport .thumb {
   padding-bottom: 60%;
   background-size: cover;
-  background-position: center center;
-  flex: 2;
+  background-position: center center;  
 }
 .article-sport .desc {
   padding: 20px;

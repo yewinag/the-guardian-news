@@ -4,6 +4,9 @@
   grid-gap: 28px;
   margin-bottom: 28px;
 }
+.search-article a {
+  border-bottom: 4px solid #d32f30;
+}
 .search-article h4 {
   font-size: 20px;
 }
@@ -21,4 +24,9 @@
   flex-direction: column;
   background-color: #09357a;
   color: #fff;
+}
+.loading-more-layout {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

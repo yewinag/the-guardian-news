@@ -33,6 +33,7 @@
   width: 100px;
   color: #fff;
   height: 40px;
+  padding: 2px 8px;
 }
 .search-input-layout{
   display: flex;

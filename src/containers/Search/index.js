@@ -55,10 +55,13 @@ function Search() {
           resultsChunk.map((item) => (
             <Card name="item-1" item={item} key={item.id} imageClass="thumb" />
           ))}
-        {loading && news.length > 0 ? <Spinner /> : null}
+
         {news.length > 0 ? (
           <LoadMore handleLoadMore={handleLoadMore} meta={meta} />
         ) : null}
+        <div className="loading-more-layout">
+          {loading && news.length > 0 ? <Spinner /> : null}
+        </div>
       </article>
     </article>
   );
