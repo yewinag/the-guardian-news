@@ -54,7 +54,7 @@ function Home() {
         {loading ? (
           <Spinner />
         ) : (
-          <article className="news-article app-container">
+          <article className="news-article">
             {firstSectionNews.map((item) => (
               <Card
                 name="item-1"
@@ -68,7 +68,7 @@ function Home() {
         {loading ? (
           <Spinner />
         ) : (
-          <article className="article-row-items app-container">
+          <article className="article-row-items">
             {secondSectionNews.map((item) => (
               <Card
                 name="item-1"

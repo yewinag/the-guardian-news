@@ -5,6 +5,7 @@ import Search from './containers/Search';
 import Detail from './containers/Detail';
 import Header from './components/Layouts/Header';
 import Footer from './components/Layouts/Footer';
+import BookMark from './containers/BookMark';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           path="/search/:tags/detail/:section/:year/:month/:day/:title"
           element={<Detail />}
         />
+        <Route exact path="/bookmarks" element={<BookMark />} />
       </Routes>
       <Footer />
     </Router>

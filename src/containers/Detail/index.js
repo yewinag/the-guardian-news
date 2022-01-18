@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Spinner } from '../../components/Common';
+import AddBookMarkBtn from '../../components/Common/AddBookMarkBtn';
 import '../../styles/detail.css';
 import { fetchData } from '../../utils';
 
@@ -23,11 +24,7 @@ function Detail() {
     <article className="article">
       <header className="article-header app-container">
         <div className="article-header-action">
-          <a href="search.html">
-            <button className="btn" type="button">
-              Add Bookmark
-            </button>
-          </a>
+          {info.content && <AddBookMarkBtn item={info} />}
         </div>
       </header>
       {!!loading && info.content !== undefined ? (

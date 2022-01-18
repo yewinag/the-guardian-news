@@ -1,0 +1,21 @@
+.bookmark-articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 28px;
+  margin-bottom: 26px;
+}
+.bookmark-articles .thumb {
+  padding-bottom: 60%;
+  background-size: cover;
+  background-position: center center;
+  flex: 2;
+}
+.bookmark-articles .desc {
+  padding: 20px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #09357a;
+  color: #fff;
+}
