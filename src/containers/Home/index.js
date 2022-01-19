@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchData } from '../../utils';
 import { ArticleHeader } from '../../components/Layouts';
 import { Spinner, Card } from '../../components/Common';
-import NewsContext from '../../hooks/NewsContext';
+import { NewsContext } from '../../hooks';
 import '../../styles/common.css';
 import '../../styles/article-listing.css';
 import '../../styles/sport-article.css';

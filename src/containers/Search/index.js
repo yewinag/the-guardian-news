@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import NewsContext from '../../hooks/NewsContext';
+import { NewsContext } from '../../hooks';
 import { ArticleHeader } from '../../components/Layouts';
 import { Spinner, LoadMore, Card } from '../../components/Common';
 import { fetchData } from '../../utils';
