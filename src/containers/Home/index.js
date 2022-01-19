@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ArticleHeader from '../../components/Layouts/ArticleHeader';
+import { fetchData } from '../../utils';
+import { ArticleHeader } from '../../components/Layouts';
+import { Spinner, Card } from '../../components/Common';
+import NewsContext from '../../hooks/NewsContext';
 import '../../styles/common.css';
 import '../../styles/article-listing.css';
 import '../../styles/sport-article.css';
-import Card from '../../components/Common/Card';
-import { fetchData } from '../../utils';
-import NewsContext from '../../hooks/NewsContext';
-import { Spinner } from '../../components/Common';
 
 function Home() {
   const [news, setNews] = useState({});

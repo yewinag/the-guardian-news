@@ -1,6 +1,6 @@
 import React from 'react';
+import { SearchInput } from '../Common';
 import '../../styles/header.css';
-import SearchInput from '../Common/SearchInput';
 
 function Header() {
   return (

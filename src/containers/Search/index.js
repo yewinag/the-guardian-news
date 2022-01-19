@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ArticleHeader from '../../components/Layouts/ArticleHeader';
-import Card from '../../components/Common/Card';
-import { Spinner } from '../../components/Common';
+import NewsContext from '../../hooks/NewsContext';
+import { ArticleHeader } from '../../components/Layouts';
+import { Spinner, LoadMore, Card } from '../../components/Common';
 import { fetchData } from '../../utils';
 import '../../styles/search-listing.css';
-import LoadMore from '../../components/Common/LoadMore';
-import NewsContext from '../../hooks/NewsContext';
 
 function Search() {
   const { query } = useParams();
