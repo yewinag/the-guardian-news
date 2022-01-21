@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ArticleHeader from '../../components/Layouts/ArticleHeader';
-import '../../styles/common.css';
-import '../../styles/article-listing.css';
-import '../../styles/sport-article.css';
 import Card from '../../components/Common/Card';
 import { fetchData } from '../../utils';
 import NewsContext from '../../hooks/NewsContext';

@@ -1,0 +1,27 @@
+// embed fonts
+@font-face {
+  font-family: 'GeorgiaSemibold';
+  src: url('../assets/fonts/GeorgiaPro-Semibold.ttf');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'GeorgiaRegular';
+  src: url('../assets/fonts/GeorgiaPro-CondRegular.ttf');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'GeorgiaBold';
+  src: url('../assets/fonts/GeorgiaPro-Bold.ttf');
+  font-weight: bold;
+}
+
+body {
+  font-family: $font-regular;
+  color: $color-grey-dark-1;
+  font-weight: 300;
+  line-height: 1.6;
+  background-color: $color-grey-light-1;  
+  a {
+    text-decoration: none;
+  }
+}

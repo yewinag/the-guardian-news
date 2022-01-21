@@ -1,0 +1,35 @@
+.search-article {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 28px;
+  margin-bottom: 28px;
+  a {
+    border-bottom: 4px solid #d32f30;
+    .thumb {
+      padding-bottom: 60%;
+      background-size: cover;
+      background-position: center center;
+      flex: 1;
+    }
+    .desc {
+      padding: 20px;
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      flex-direction: column;
+      background-color: #09357a;
+      color: #fff;
+      height: 136px;
+      h4 {
+        font-size: $normal-heading; 
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+  .loading-more-layout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

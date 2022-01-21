@@ -1,11 +1,10 @@
 import React from 'react';
-import '../../styles/header.css';
 import SearchInput from '../Common/SearchInput';
 
 function Header() {
   return (
     <header className="header">
-      <nav className="header-nav app-container">
+      <nav className=" app-container header-nav">
         <a href="/">
           <h2 className="title">
             <small>The</small>

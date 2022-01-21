@@ -1,0 +1,55 @@
+$color-primary: #09357a;
+$color-primary-light: #1464b5;
+
+$color-heading-secondary: #212121;
+
+$color-grey-light-1: #fff;
+$color-grey-dark-1: #212121;
+
+$color-light-1: #388e3c;
+$color-light-2: #d32f30;
+$color-light-3: #ffc107;
+$color-light-4: #2153a3;
+
+// Font Variables
+$font-regular: 'GeorgiaRegular', Arial, Helvetica, sans-serif;
+$font-bold: 'GeorgiaBold', Arial, Helvetica, sans-serif;
+$font-semibold: 'GeorgiaSemibold', Arial, Helvetica, sans-serif;
+
+// Responsive Breakpoints
+$bp-largest: 75em;
+$bp-large: 62.5em;
+$medium-screen: 54.750em;
+$small-screen: 37.5em;
+
+// @height
+$header-height: 12.5em;
+$input-height: 3em;
+$input-height-mobile: 2em;
+$input-width-1: 6.2em;
+$input-width-2: 12.5em;
+// @border width
+$border-width-1: 0.125em;
+$border-width-2: 0.25em;
+// @font-size
+$heading: 3em;
+$small-heading: 1.4em;
+$normal-heading: 2.2em;
+$regular-text: 1.4em;
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
+}
+
+// Global Resets
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}

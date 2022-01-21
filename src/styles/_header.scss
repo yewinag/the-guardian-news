@@ -1,0 +1,93 @@
+/* header */
+%flexLayout {
+  display: flex;
+  align-items: center;
+}
+.header {
+  background-color: $color-primary;
+  .header-nav {
+    @extend %flexLayout;
+    position: relative;
+    height: $header-height;    
+    .title {
+      position: relative;
+      color: $color-grey-light-1;
+      small {
+        position: absolute;
+        top: -2px;
+        left: 22px;
+        font-size: $small-heading;
+      }
+      span {
+        font-size: $heading;
+      }
+    }
+    .search {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      .search-input-layout {
+        @extend %flexLayout;
+        position: relative;
+        .search-input {
+          background: transparent;
+          border: 0;
+          border-bottom: 2px solid $color-grey-light-1;
+          width: $input-width-1;
+          color: $color-grey-light-1;
+          height: $input-height;
+          padding: 0.12em 0.5em;
+          &:focus {
+            background: #2153a3;
+            width: $input-width-2;
+            border: 0;
+            transition: 0.7s;
+            border-radius: 0;
+            border-bottom: $border-width-1 solid $color-grey-light-1;
+          }
+          // clear focus-visible default
+          &:focus-visible {
+            outline: 0;
+            border-bottom: $border-width-1 solid #fff;
+          }
+        }
+        .search-icon {
+          position: absolute;
+          right: 28px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: $medium-screen) {
+  .header {
+    .header-nav {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 15px;
+      .search {
+        position: absolute;
+        left: 15px;
+        bottom: 0;
+        .search-input-layout {
+          .search-input {
+            float: left;
+            background: transparent;
+            border: 0;
+            border-bottom: 2px solid #fff;
+            width: $input-width-1;
+            color: #fff;
+            height: $input-height-mobile;
+            font-size: 20px;
+            padding: 0.12em 1.3em;
+          }
+          .search-icon{
+              left: 0;
+          }
+        }
+      }
+    }
+  }
+}

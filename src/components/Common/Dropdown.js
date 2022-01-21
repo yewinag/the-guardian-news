@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import '../../styles/dropdown.css';
 import { fetchData, sortMenu } from '../../utils';
 import NewsContext from '../../hooks/NewsContext';
 import { ReactComponent as DropdownIcon } from '../../assets/dropdown.svg';

@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Dropdown } from '../Common';
-import '../../styles/common.css';
-import '../../styles/article-header.css';
 import { ReactComponent as BookMarkIcon } from '../../assets/bookmark.svg';
 
 function ArticleHeader({ title }) {
