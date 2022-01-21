@@ -11,14 +11,16 @@ function ArticleHeader({ title }) {
     <header className="article-header app-container">
       <h2>{title}</h2>
       <div className="article-header-action">
-        <button
-          className="btn"
-          type="button"
-          onClick={() => navigate(`/bookmarks`)}
-        >
-          <BookMarkIcon width="32px" />
-          View Bookmark
-        </button>
+        {title !== 'All Bookmarks' ? (
+          <button
+            className="btn"
+            type="button"
+            onClick={() => navigate(`/bookmarks`)}
+          >
+            <BookMarkIcon width="32px" />
+            View Bookmark
+          </button>
+        ) : null}
         <Dropdown />
       </div>
     </header>

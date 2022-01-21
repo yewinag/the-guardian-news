@@ -13,7 +13,9 @@ function Detail() {
 
   useEffect(() => {
     setloading(true);
-    fetchData(`/${section}/${year}/${month}/${day}/${title}?`).then((json) => {
+    fetchData(
+      `/${section}/${year}/${month}/${day}/${title}?show-fields=all&show-elements=all`
+    ).then((json) => {
       setInfo(json);
       setloading(false);
     });
@@ -35,7 +37,12 @@ function Detail() {
               {info.content && info.content.webPublicationDate}
             </p>
             <h2>{info.content && info.content.webTitle}</h2>
-            <p />
+            <h3>{info.content && info.content.fields.headline}</h3>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: info.content && info.content.fields.body,
+              }}
+            />
             <p />
           </section>
           <section className="detail-col-2">
