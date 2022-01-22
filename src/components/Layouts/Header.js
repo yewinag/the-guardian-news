@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <nav className="header-nav app-container">
         <a href="/">
-          <h2 className="title">
+          <h2 className="title" title="The Peaks">
             <small>The</small>
             <span>Peaks</span>
           </h2>

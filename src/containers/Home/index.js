@@ -6,6 +6,8 @@ import { NewsContext } from '../../hooks';
 import '../../styles/common.css';
 import '../../styles/article-listing.css';
 import '../../styles/sport-article.css';
+import ListingLayout from '../../components/Layouts/ListingLayout';
+import SecondListingLayout from '../../components/Layouts/SecondListingLayout';
 
 function Home() {
   const [news, setNews] = useState({});
@@ -51,55 +53,19 @@ function Home() {
       <NewsContext.Provider value={value}>
         <ArticleHeader title="Top Stories" />
       </NewsContext.Provider>
-      <div className="app-container">
-        {loading ? (
-          <Spinner />
-        ) : (
-          <article className="news-article">
-            {firstSectionNews.map((item) => (
-              <Card
-                name="item-1"
-                item={item}
-                key={item.id}
-                imageClass="thumb"
-              />
-            ))}
-          </article>
-        )}
-        {loading ? (
-          <Spinner />
-        ) : (
-          <article className="article-row-items">
-            {secondSectionNews.map((item) => (
-              <Card
-                name="item-1"
-                item={item}
-                key={item.id}
-                imageClass="second-row-card"
-              />
-            ))}
-          </article>
-        )}
-      </div>
+      <ListingLayout
+        loading={loading}
+        firstSectionNews={firstSectionNews}
+        secondSectionNews={secondSectionNews}
+      />
       <article className="app-container">
         <header className="sport-article-header">
           <h2>Sports</h2>
         </header>
-
-        {loadingSport ? (
-          <Spinner />
-        ) : (
-          <article className="article-sport">
-            {sportNews.map((item) => (
-              <Card
-                name="item-1"
-                item={item}
-                key={item.id}
-                imageClass="thumb"
-              />
-            ))}
-          </article>
-        )}
+        <SecondListingLayout
+          loadingSport={loadingSport}
+          sportNews={sportNews}
+        />
       </article>
     </article>
   );

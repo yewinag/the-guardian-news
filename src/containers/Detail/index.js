@@ -38,11 +38,7 @@ function Detail() {
             </p>
             <h2>{info.content && info.content.webTitle}</h2>
             <h3>{info.content && info.content.fields.headline}</h3>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: info.content && info.content.fields.body,
-              }}
-            />
+            {info.content && info.content.fields.body}
             <p />
           </section>
           <section className="detail-col-2">

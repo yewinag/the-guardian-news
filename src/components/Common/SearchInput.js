@@ -5,7 +5,6 @@ import { ReactComponent as Search } from '../../assets/search.svg';
 function SearchInput() {
   const [query, searchOnchange] = useState('');
   const navigate = useNavigate();
-
   const handleInputChange = (e) => {
     searchOnchange(e.target.value);
     if (e.key === 'Enter') {
@@ -18,6 +17,7 @@ function SearchInput() {
         className="search-input"
         type="text"
         value={query}
+        aria-label="search-input"
         onChange={handleInputChange}
         onKeyDown={handleInputChange}
       />
