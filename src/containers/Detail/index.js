@@ -21,6 +21,9 @@ function Detail() {
     });
   }, [section, year, month, day, title]);
 
+  function getbody(text) {
+    return { __html: text };
+  }
   return (
     <article className="article">
       <header className="article-header app-container">
@@ -38,7 +41,12 @@ function Detail() {
             </p>
             <h2>{info.content && info.content.webTitle}</h2>
             <h3>{info.content && info.content.fields.headline}</h3>
-            {info.content && info.content.fields.body}
+            {/* eslint-disable */}
+            <div
+              dangerouslySetInnerHTML={getbody(
+                info.content && info.content.fields.body
+              )}
+            />
             <p />
           </section>
           <section className="detail-col-2">

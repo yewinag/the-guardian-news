@@ -19,3 +19,7 @@
   background-color: #09357a;
   color: #fff;
 }
+.bookmark-articles .desc h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

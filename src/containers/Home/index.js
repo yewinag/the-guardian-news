@@ -20,19 +20,19 @@ function Home() {
 
   const handleSportNews = () => {
     setloadingSport(true);
-    fetchData(`/search?section=sport&`).then((res) => {
+    fetchData(`/search?section=sport&show=elements=all&`).then((res) => {
       setSports(res);
       setloadingSport(false);
     });
   };
   const handleFetchNews = (params = '') => {
     setloading(true);
-    fetchData(`/search?section=news${params}`).then((res) => {
+    fetchData(`/search?section=news${params}&show-elements=all`).then((res) => {
       setNews(res.results);
       setloading(false);
     });
   };
-  const url = `/search?section=news&order-by=`;
+  const url = `/search?section=news&show-elements=all&order-by=`;
   const value = React.useMemo(
     () => ({
       loading,
