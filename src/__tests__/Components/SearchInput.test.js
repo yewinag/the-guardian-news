@@ -17,8 +17,7 @@ const setup = () => {
 };
 
 test('renders Search Input', () => {
-  const { input } = setup()
-  fireEvent.change(input, {target: {value: 'sports'}})
-  expect(input.value).toBe('sports')      
+  const { input } = setup();
+  fireEvent.change(input, { target: { value: 'sports' } });
+  expect(input.value).toBe('sports');
 });
-

@@ -7,7 +7,7 @@ test('should render dropdown', () => {
   const button = screen.getByRole('button');
   const list = screen.getByRole('list');
   const { getAllByRole } = within(list);
-  const items = getAllByRole('presentation');  
+  const items = getAllByRole('presentation');
   fireEvent.click(button);
   expect(list).toBeInTheDocument();
   expect(items.length).toBe(3);
