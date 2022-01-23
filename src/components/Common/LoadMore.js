@@ -13,7 +13,7 @@ function LoadMore({ handleLoadMore, meta }) {
       <article className="desc">
         <h4>
           Load More
-          <img src={rightIcon} />
+          <img src={rightIcon} alt="load more right icon" />
         </h4>
 
         <p>{`for ${meta.total} news`}</p>

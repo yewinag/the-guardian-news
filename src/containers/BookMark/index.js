@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Spinner } from '../../components/Common';
-import Card from '../../components/Common/Card';
-import ArticleHeader from '../../components/Layouts/ArticleHeader';
+import { Spinner, Card } from '../../components/Common';
+import { ArticleHeader } from '../../components/Layouts';
 import { getAllItems } from '../../utils/localStorage';
 import '../../styles/bookmark.css';
 

@@ -1,13 +1,13 @@
 import React from 'react';
+import { SearchInput } from '../Common';
 import '../../styles/header.css';
-import SearchInput from '../Common/SearchInput';
 
 function Header() {
   return (
     <header className="header">
       <nav className="header-nav app-container">
         <a href="/">
-          <h2 className="title">
+          <h2 className="title" title="The Peaks">
             <small>The</small>
             <span>Peaks</span>
           </h2>
