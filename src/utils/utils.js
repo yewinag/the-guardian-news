@@ -10,3 +10,6 @@ export const fetchData = async (path) => {
   }
   return res.response;
 };
+
+export const chunkList = (list, param1 = 0, param2 = 0) =>
+  list.slice(param1, param2);

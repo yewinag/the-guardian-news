@@ -1,27 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import '../../styles/dropdown.css';
 import { fetchData, sortMenu } from '../../utils';
-import { NewsContext } from '../../hooks';
+import { NewsContext, useToggle } from '../../hooks';
 import { ReactComponent as DropdownIcon } from '../../assets/dropdown.svg';
 
 const InitialValue = { name: 'Newest First' };
 
 function Dropdown() {
   const [value, setValue] = useState(InitialValue);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setActive] = useToggle(false);
   const news = useContext(NewsContext);
-
-  useEffect(() => {
-    const onClick = () => {
-      setIsActive(!isActive);
-    };
-    if (isActive) {
-      window.addEventListener('click', onClick);
-    }
-    return () => {
-      window.removeEventListener('click', onClick);
-    };
-  }, [isActive]);
 
   const handleSort = (params) => {
     news.setloading(true);
@@ -34,7 +22,7 @@ function Dropdown() {
 
   return (
     <div className="dropdown">
-      <button type="button" onClick={() => setIsActive(!isActive)}>
+      <button type="button" onClick={() => setActive.toggle(!isActive)}>
         <span>{value.name}</span>
         <DropdownIcon className="dropdown-icon" />
       </button>
