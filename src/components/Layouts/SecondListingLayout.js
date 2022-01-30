@@ -1,10 +1,16 @@
 import React from 'react';
+import { useFetchSearchCategory } from '../../hooks/useFetch';
+import { chunkList } from '../../utils';
 import { Spinner, Card } from '../Common';
 
-function SecondListingLayout({ loadingSport, sportNews }) {
+function SecondListingLayout() {
+  const [news, fetching] = useFetchSearchCategory('sport'); // fetch sport category, so set default
+
+  const sportNews = news.length > 0 ? chunkList(news, 0, 3) : []; // chunk 3 items
+
   return (
     <div>
-      {loadingSport ? (
+      {fetching ? (
         <Spinner />
       ) : (
         <article className="article-sport">

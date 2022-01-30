@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import '../../styles/dropdown.css';
-import { fetchData, sortMenu } from '../../utils';
+import { sortMenu } from '../../utils';
 import { NewsContext, useToggle } from '../../hooks';
 import { ReactComponent as DropdownIcon } from '../../assets/dropdown.svg';
 
@@ -12,12 +12,8 @@ function Dropdown() {
   const news = useContext(NewsContext);
 
   const handleSort = (params) => {
-    news.setloading(true);
     setValue(params);
-    fetchData(`${news.url}${params.keyword}`).then((json) => {
-      news.setloading(false);
-      news.setNews(json.results);
-    });
+    news.setOrderNews(params.keyword);
   };
 
   return (

@@ -1,26 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Spinner, AddBookMarkBtn } from '../../components/Common';
+import { useFetchDetail } from '../../hooks';
 import '../../styles/detail.css';
-import { fetchData } from '../../utils';
-
-const img = require('../../assets/peak-default.png');
 
 function Detail() {
-  const [loading, setloading] = useState(false);
-  const [info, setInfo] = useState({});
   const { section, year, month, day, title } = useParams();
-
-  useEffect(() => {
-    setloading(true);
-    fetchData(
-      `/${section}/${year}/${month}/${day}/${title}?show-fields=all&show-elements=all`
-    ).then((json) => {
-      setInfo(json);
-      setloading(false);
-    });
-  }, [section, year, month, day, title]);
-
+  const [info, fetching] = useFetchDetail(
+    `/${section}/${year}/${month}/${day}/${title}`
+  );
   function getbody(text) {
     return { __html: text };
   }
@@ -31,7 +19,7 @@ function Detail() {
           {info.content && <AddBookMarkBtn item={info} />}
         </div>
       </header>
-      {!!loading && info.content !== undefined ? (
+      {!!fetching && info.content !== undefined ? (
         <Spinner />
       ) : (
         <article className="detail app-container">
@@ -50,11 +38,6 @@ function Detail() {
             <p />
           </section>
           <section className="detail-col-2">
-            {loading && info.content !== undefined ? (
-              <Spinner />
-            ) : (
-              <img src={img} alt="news detail images" />
-            )}
             <p />
           </section>
         </article>

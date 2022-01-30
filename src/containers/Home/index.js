@@ -1,51 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../utils';
-import { ArticleHeader } from '../../components/Layouts';
+import React, { useState } from 'react';
+import { chunkList, sortMenu } from '../../utils';
 import { NewsContext } from '../../hooks';
+import { useFetchSearchCategory } from '../../hooks/useFetch';
+import {
+  ArticleHeader,
+  ListingLayout,
+  SecondListingLayout,
+} from '../../components/Layouts';
 import '../../styles/common.css';
 import '../../styles/article-listing.css';
 import '../../styles/sport-article.css';
-import ListingLayout from '../../components/Layouts/ListingLayout';
-import SecondListingLayout from '../../components/Layouts/SecondListingLayout';
+
+const defaultOrder = sortMenu[2].keyword;
 
 function Home() {
-  const [news, setNews] = useState({});
-  const [loading, setloading] = useState(false);
-  const [sports, setSports] = useState({});
-  const [loadingSport, setloadingSport] = useState(false);
-  useEffect(() => {
-    handleFetchNews();
-    handleSportNews();
-  }, []);
+  const [orderNews, setOrderNews] = useState(defaultOrder);
+  const [news, fetching] = useFetchSearchCategory('news', orderNews); // fetch news category, so set default
 
-  const handleSportNews = () => {
-    setloadingSport(true);
-    fetchData(`/search?section=sport&show=elements=all&`).then((res) => {
-      setSports(res);
-      setloadingSport(false);
-    });
-  };
-  const handleFetchNews = (params = '') => {
-    setloading(true);
-    fetchData(`/search?section=news${params}&show-elements=all`).then((res) => {
-      setNews(res.results);
-      setloading(false);
-    });
-  };
-  const url = `/search?section=news&show-elements=all&order-by=`;
   const value = React.useMemo(
     () => ({
-      loading,
-      setloading,
-      setNews,
-      url,
+      orderNews,
+      setOrderNews,
     }),
-    [loading, url]
+    [orderNews, setOrderNews]
   );
-  const firstSectionNews = news.length > 0 ? news.slice(0, 5) : [];
-  const secondSectionNews = news.length > 0 ? news.slice(5, 8) : [];
-  const sportNews =
-    sports.results !== undefined ? sports.results.slice(0, 3) : [];
+  const firstSectionNews = news.length > 0 ? chunkList(news, 0, 5) : [];
+  const secondSectionNews = news.length > 0 ? chunkList(news, 5, 8) : [];
 
   return (
     <article className="article">
@@ -53,7 +33,7 @@ function Home() {
         <ArticleHeader title="Top Stories" />
       </NewsContext.Provider>
       <ListingLayout
-        loading={loading}
+        loading={fetching}
         firstSectionNews={firstSectionNews}
         secondSectionNews={secondSectionNews}
       />
@@ -61,10 +41,7 @@ function Home() {
         <header className="sport-article-header">
           <h2>Sports</h2>
         </header>
-        <SecondListingLayout
-          loadingSport={loadingSport}
-          sportNews={sportNews}
-        />
+        <SecondListingLayout />
       </article>
     </article>
   );

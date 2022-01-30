@@ -1,55 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import NewsContext from '../../hooks/NewsContext';
+import { useFetchSearchQuery } from '../../hooks';
 import ArticleHeader from '../../components/Layouts/ArticleHeader';
 import Card from '../../components/Common/Card';
 import { Spinner } from '../../components/Common';
-import { fetchData } from '../../utils';
-import '../../styles/search-listing.css';
 import LoadMore from '../../components/Common/LoadMore';
-import NewsContext from '../../hooks/NewsContext';
+import { chunkList, sortMenu } from '../../utils';
+import '../../styles/search-listing.css';
+
+const defaultOrder = sortMenu[2].keyword;
+const defaultPage = 1;
 
 function Search() {
   const { query } = useParams();
-  const [news, setNews] = useState([]);
-  const [meta, setmeta] = useState({});
-  const [loading, setloading] = useState(false);
-  useEffect(() => {
-    setloading(true);
-    fetchData(`/search?q=${query}`).then((json) => {
-      setNews(json.results);
-      setmeta(json);
-      setloading(false);
-    });
-  }, [query]);
+  const [order, setOrder] = useState(defaultOrder);
+  const [page, setPage] = useState(defaultPage);
+  const [news, meta, fetching] = useFetchSearchQuery(query, page, order);
 
-  const handleLoadMore = () => {
-    setloading(true);
-    fetchData(`/search?q=${query}&page=${meta.currentPage + 1}`).then(
-      (json) => {
-        setNews([...news, ...json.results]);
-        setmeta(json);
-        setloading(false);
-      }
-    );
+  const handleLoadMore = () => setPage(meta.currentPage + 1); // current page + 1, click load more actions
+
+  const handleSort = (params) => {
+    setOrder(params);
+    setPage(1); // set default page back
   };
-  const url = `/search?q=${query}&order-by=`;
   const value = React.useMemo(
     () => ({
-      loading,
-      setloading,
-      setNews,
-      setmeta,
-      url,
+      order,
+      setOrderNews: handleSort,
     }),
-    [loading, url]
+    [order]
   );
   const chunkNum = news.length - news.length * 0.2;
-  const resultsChunk = news.length > 0 ? news.slice(0, chunkNum) : [];
+  const resultsChunk = news.length > 0 ? chunkList(news, 0, chunkNum) : [];
   return (
     <article className="article">
       <NewsContext.Provider value={value}>
         <ArticleHeader title="Search Results" />
       </NewsContext.Provider>
+      <div className="app-container">
+        {fetching && (news.length === 0 || news.length === 10) ? (
+          <Spinner />
+        ) : null}
+      </div>
       <article className="search-article app-container">
         {resultsChunk.length > 0 &&
           resultsChunk.map((item) => (
@@ -60,7 +53,7 @@ function Search() {
           <LoadMore handleLoadMore={handleLoadMore} meta={meta} />
         ) : null}
         <div className="loading-more-layout">
-          {loading && news.length > 0 ? <Spinner /> : null}
+          {fetching && news.length > 0 ? <Spinner /> : null}
         </div>
       </article>
     </article>
